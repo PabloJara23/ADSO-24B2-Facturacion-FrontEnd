@@ -1,0 +1,7 @@
+{
+  "name": "ADSO-24B2-Facturacion-FrontEnd",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
