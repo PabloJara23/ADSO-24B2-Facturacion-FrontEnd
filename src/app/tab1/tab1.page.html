@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Crear Producto
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -70,7 +70,9 @@
           <p *ngIf="form.get('categoria').hasError('required')">Es requerido</p>
         </ion-item>
       </ion-list>
-      <button ion-button block type="submit" [disabled]="form.invalid">Guardar</button>
+      <ion-button expand="block" type="submit" [disabled]="form.invalid">
+          Guardar
+        </ion-button>
      </form>
   </ion-card-content>
 

@@ -17,6 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ExploreContainerComponentModule,
     Tab1PageRoutingModule,
     ReactiveFormsModule
+
   ],
   declarations: [Tab1Page]
 })

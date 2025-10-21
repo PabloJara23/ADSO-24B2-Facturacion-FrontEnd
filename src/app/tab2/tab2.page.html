@@ -1,17 +1,69 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      Crear Cliente
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+
+
+  <ion-card-content>
+    <form [formGroup]="form" (ngSubmit)="guardarCliente()" novalidate>
+      <ion-list>
+        
+        <ion-item>
+          <ion-label color="primary" floating>Nombre del cliente: </ion-label>
+          <ion-input formControlName="nombre_cliente"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="form.get('nombre_cliente').errors && form.get('nombre_cliente').touched">
+          <p *ngIf="form.get('nombre_cliente').hasError('required')">Es requerido</p>
+        </ion-item>
+        <ion-item>
+          <ion-label color="primary" floating>Fecha del cliente: </ion-label>
+          <ion-input formControlName="fecha_cliente"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="form.get('fecha_cliente').errors && form.get('fecha_cliente').touched">
+          <p *ngIf="form.get('fecha_cliente').hasError('required')">Es requerido</p>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" floating>Tipo de identificación: </ion-label>    
+          <ion-select placeholder="Seleccione"  formControlName="tipo_identificacion">
+            <ion-select-option value="cedula_ciudadania">Cedula de ciudadania</ion-select-option>
+            <ion-select-option value="tarjeta_identidad">Tarjeta de identidad</ion-select-option>
+            <ion-select-option value="pasaporte">Pasaporte</ion-select-option>
+            <ion-select-option value="cedula_extranjera">Cedula de extranjeria</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item *ngIf="form.get('tipo_identificacion').errors && form.get('tipo_identificacion').touched">
+          <p *ngIf="form.get('tipo_identificacion').hasError('required')">Es requerido</p>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" floating>Identificación del cliente: </ion-label>
+          <ion-input formControlName="identificacion_cliente"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="form.get('identificacion_cliente').errors && form.get('identificacion_cliente').touched">
+          <p *ngIf="form.get('identificacion_cliente').hasError('required')">Es requerido</p>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" floating>Email del cliente: </ion-label>
+          <ion-input formControlName="email_cliente"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="form.get('email_cliente').errors && form.get('email_cliente').touched">
+          <p *ngIf="form.get('email_cliente').hasError('required')">Es requerido</p>
+        </ion-item>
+
+      </ion-list>
+
+      <ion-button expand="block" type="submit" [disabled]="form.invalid">
+          Guardar
+        </ion-button>
+     </form>
+  </ion-card-content>
+
 </ion-content>
